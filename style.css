@@ -1,0 +1,251 @@
+:root {
+    --primary-color: #004d40;
+    /* Deep Green - Al-Aqsa style */
+    --secondary-color: #d4af37;
+    /* Metallic Gold */
+    --bg-dark: #0a0a0a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-light: #ffffff;
+    --text-muted: #b0b0b0;
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+header {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1.5rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container img {
+    height: 60px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+}
+
+.university-name {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.university-name h1 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.university-name p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+main {
+    flex: 1;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.course-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.course-card:hover::before {
+    opacity: 1;
+}
+
+.course-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.course-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.detail-item i {
+    color: var(--secondary-color);
+}
+
+.btn-join {
+    background: linear-gradient(135deg, var(--primary-color), #00695c);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-join:hover {
+    box-shadow: 0 5px 15px rgba(0, 77, 64, 0.4);
+    transform: scale(1.02);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #151515;
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 32px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.modal-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 2rem;
+}
+
+.btn-submit {
+    background: var(--secondary-color);
+    color: #000;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 12px;
+    font-weight: 701;
+    cursor: pointer;
+    width: 100%;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    border-top: 1px solid var(--glass-border);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .university-name h1 {
+        font-size: 1.2rem;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}

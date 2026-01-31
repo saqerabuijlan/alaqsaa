@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة الأقصى | المحاضرات الافتراضية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        input[type="number"] {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--secondary-color);
+        }
+
+        #errorMessage {
+            height: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-10px);
+            }
+
+            75% {
+                transform: translateX(10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="شعار جامعة الأقصى">
+            <div class="university-name">
+                <h1>جامعة الأقصى</h1>
+                <p>عمادة الدراسات العليا</p>
+                <p>الدبلوماسية والعلاقات الدولية</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <!-- Reserved for potential nav -->
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>منصة المحاضرات الافتراضية</h2>
+            <p>مرحباً بك في بوابة التعليم الإلكتروني للدراسات العليا</p>
+        </section>
+
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-info">
+                    <h3>مساق تحليل الأزمات السياسة الدولية</h3>
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>الأحد كل أسبوع</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>12:00 م - 14:00 م</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-join" onclick="openAuthModal('1')">الانضمام للمحاضرة</button>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-info">
+                    <h3>مساق تحليل السياسة الخارجية الدولية</h3>
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>الثلاثاء كل أسبوع</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>12:00 م - 14:00 م</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-join" onclick="openAuthModal('2')">الانضمام للمحاضرة</button>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-info">
+                    <h3>مساق المنظمات الإقليمية والدولية</h3>
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>الأربعاء كل أسبوع</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>12:00 م - 14:00 م</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-join" onclick="openAuthModal('3')">الانضمام للمحاضرة</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Authentication Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <h4 id="modalTitle">اسم المساق</h4>
+            <p>يرجى إدخال الرقم الجامعي للمتابعة</p>
+            <div class="input-group">
+                <input type="number" id="studentId" placeholder="الرقم الجامعي" autocomplete="off">
+                <div id="errorMessage"></div>
+                <button class="btn-submit" onclick="validateAccess()">دخول المحاضرة</button>
+            </div>
+            <button
+                style="background:none; border:none; color:var(--text-muted); cursor:pointer; text-decoration:underline;"
+                onclick="closeModal()">إلغاء</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 جامعة الأقصى - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
