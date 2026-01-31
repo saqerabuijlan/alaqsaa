@@ -33,8 +33,7 @@ function openAuthModal(courseKey) {
 }
 
 function closeModal() {
-    document.getElementById('authModal').style.display = 'none';
-    currentCourseKey = null;
+    
 }
 
 function validateAccess() {
@@ -55,11 +54,7 @@ function validateAccess() {
     }
 }
 
-// Close modal when clicking outside
-window.onclick = function (event) {
-    const modal = document.getElementById('authModal');
-    if (event.target == modal) {
-        closeModal();
+
     }
 }
 
@@ -69,3 +64,4 @@ document.getElementById('studentId')?.addEventListener('keypress', function (e) 
         validateAccess();
     }
 });
+
